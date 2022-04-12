@@ -17,6 +17,10 @@ import {
 
 function App() {
   
+  const openInNewTab = (url) => {
+    const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+    if (newWindow) newWindow.opener = null
+  }
 
 
   const  {colorMode, toggleColorMode} = useColorMode(); 
@@ -34,9 +38,9 @@ function App() {
         </Container>
         <Heading paddingTop={50} size={'3xl'}>Contact Info: </Heading>
         <HStack alignSelf={'flex-center'}>  
-          <IconButton isRound='true' size={'lg'} icon={<FaRegEnvelope/>}/>
-          <IconButton isRound='true' size={'lg'} icon={<FaGithub/>}/>
-          <IconButton isRound='true' size={'lg'} icon={<FaTwitter/>}/>
+          <IconButton isRound='true' size={'lg'} icon={<FaRegEnvelope/>} onClick={window.open('mailto:c25kenneth@gmail.com?subject=Subject&body=Body%20goes%20here')}/>
+          <IconButton isRound='true' size={'lg'} icon={<FaGithub/>} onClick={openInNewTab('https://github.com/thequickbrownfoxjumpedoverthelazydog')}/>
+          <IconButton isRound='true' size={'lg'} icon={<FaTwitter/>} onClick={openInNewTab('https://twitter.com/Kenneth31079194')}/>
         </HStack>
         <Heading paddingTop={100} fontSize={'120px'}>Who Am I?</Heading>
         <Container width={'900px'}>
